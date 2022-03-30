@@ -59,7 +59,7 @@ def generate_launch_description():
             ),
             launch.actions.DeclareLaunchArgument(
                 name="frame_id",
-                default_value="lidar",
+                default_value="lidar_link",
             ),
             launch.actions.IncludeLaunchDescription(
                 launch.launch_description_sources.PythonLaunchDescriptionSource(
@@ -73,6 +73,17 @@ def generate_launch_description():
                         "lidar_publish_freq"
                     ),
                     "frame_id": launch.substitutions.LaunchConfiguration("frame_id"),
+                }.items(),
+            ),
+            launch.actions.IncludeLaunchDescription(
+                launch.launch_description_sources.PythonLaunchDescriptionSource(
+                    os.path.join(
+                        get_package_share_directory("avt_vimba_camera"),
+                        "launch/michael.launch.py",
+                    )
+                ),
+                launch_arguments={
+                    "default_camera_param_file": "/home/roar/Desktop/projects/roar_ros/src/avt_vimba_camera/config/main/default.yaml"
                 }.items(),
             ),
             joint_state_publisher_node,

@@ -6,6 +6,8 @@ Panels:
       Expanded:
         - /Global Options1
         - /Status1
+        - /Image1
+        - /Image1/Topic1
       Splitter Ratio: 0.5
     Tree Height: 536
 Visualization Manager:
@@ -123,6 +125,20 @@ Visualization Manager:
       Use Fixed Frame: true
       Use rainbow: true
       Value: true
+    - Class: rviz_default_plugins/Image
+      Enabled: true
+      Max Value: 1
+      Median window: 5
+      Min Value: 0
+      Name: Image
+      Normalize Range: true
+      Topic:
+        Depth: 5
+        Durability Policy: Volatile
+        History Policy: Keep Last
+        Reliability Policy: Best Effort
+        Value: /camera/front_left/image
+      Value: true
   Enabled: true
   Global Options:
     Background Color: 48; 48; 48
@@ -170,7 +186,9 @@ Window Geometry:
   Height: 765
   Hide Left Dock: false
   Hide Right Dock: false
-  QMainWindow State: 000000ff00000000fd000000010000000000000156000002a3fc0200000001fb000000100044006900730070006c006100790073010000003d000002a3000000c900ffffff00000640000002a300000004000000040000000800000008fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
+  Image:
+    collapsed: false
+  QMainWindow State: 000000ff00000000fd000000020000000000000156000002a3fc0200000001fb0000000a0049006d006100670065010000003d000002a30000002800ffffff0000000100000156000002a3fc0200000001fb000000100044006900730070006c006100790073010000003d000002a3000000c900ffffff000004e4000002a300000004000000040000000800000008fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
   Width: 1948
   X: 160
   Y: 115
