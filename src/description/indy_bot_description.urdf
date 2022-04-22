@@ -14,22 +14,18 @@
 <xacro:property name="base_height" value="0.01"/>
 <!-- Robot Base -->
 <link name="base_link">
-    <visual>
+    <!-- <visual>
         <geometry>
             <box size="${base_length} ${base_width} ${base_height}"/>
         </geometry>
         <material name="Cyan">
             <color rgba="0 1.0 1.0 1.0"/>
         </material>
-    </visual>
+    </visual> -->
 </link>
 
+
 <!-- lidar -->
-<joint name="lidar_joint" type="fixed">
-    <parent link="lidar_link"/>
-    <child link="base_link"/>
-    <origin xyz="0.0 0.0 ${-(base_height/2+lidar_height/2)}" rpy="0 0 0"/>
-</joint>
 <link name="lidar_link">
     <visual>
         <geometry>
@@ -41,8 +37,15 @@
     </visual>
 </link>
 
-<!-- Camera -->
-<joint name="camera_joint" type="fixed">
+<joint name="lidar_joint" type="fixed">
+    <parent link="base_link"/>
+    <child link="lidar_link"/>
+    <origin xyz="0.0 0.0 ${(base_height/2+lidar_height/2)}" rpy="0 0 0"/>
+</joint>
+
+
+
+<!-- <joint name="camera_joint" type="fixed">
     <parent link="camera_link"/>
     <child link="lidar_link"/>
     <origin xyz="0.0 0.0 ${-(lidar_height/2+camera_height/2)}" rpy="0 0 0"/>
@@ -56,6 +59,14 @@
             <color rgba="1 0 0 1"/>
         </material>
     </visual>
-</link>
+</link> -->
+
+<!-- <link name="zed2i_base_link">
+</link> 
+<joint name="zed2livox" type="fixed">
+    <parent link="lidar_link"/>
+    <child link="zed2i_base_link"/>
+    <origin xyz="0.0 0.0 ${(lidar_height/2+camera_height/2)}" rpy="0 0 0"/>
+</joint> -->
 
 </robot>
