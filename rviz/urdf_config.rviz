@@ -6,10 +6,14 @@ Panels:
       Expanded:
         - /Global Options1
         - /Status1
-        - /Image1
-        - /Image1/Topic1
-      Splitter Ratio: 0.5
-    Tree Height: 536
+        - /Left1/Status1
+        - /Left1/Topic1
+        - /Right1
+        - /Right1/Topic1
+        - /Center1
+        - /Center1/Topic1
+      Splitter Ratio: 0.46915167570114136
+    Tree Height: 787
 Visualization Manager:
   Class: ""
   Displays:
@@ -58,8 +62,17 @@ Visualization Manager:
           Alpha: 1
           Show Axes: false
           Show Trail: false
+        center_lidar:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
           Value: true
-        lidar_link:
+        left_lidar:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        right_lidar:
           Alpha: 1
           Show Axes: false
           Show Trail: false
@@ -78,7 +91,11 @@ Visualization Manager:
           Value: true
         camera_link:
           Value: true
-        lidar_link:
+        center_lidar:
+          Value: true
+        left_lidar:
+          Value: true
+        right_lidar:
           Value: true
       Marker Scale: 0.30000001192092896
       Name: TF
@@ -86,10 +103,14 @@ Visualization Manager:
       Show Axes: true
       Show Names: true
       Tree:
-        camera_link:
-          lidar_link:
-            base_link:
+        base_link:
+          center_lidar:
+            camera_link:
               {}
+          left_lidar:
+            {}
+          right_lidar:
+            {}
       Update Interval: 0
       Value: true
     - Alpha: 1
@@ -107,10 +128,10 @@ Visualization Manager:
       Enabled: true
       Invert Rainbow: false
       Max Color: 255; 255; 255
-      Max Intensity: 151
+      Max Intensity: 150
       Min Color: 0; 0; 0
       Min Intensity: 0
-      Name: PointCloud2
+      Name: Left
       Position Transformer: XYZ
       Selectable: true
       Size (Pixels): 3
@@ -120,24 +141,76 @@ Visualization Manager:
         Depth: 5
         Durability Policy: Volatile
         History Policy: Keep Last
-        Reliability Policy: Reliable
-        Value: /livox/lidar
+        Reliability Policy: Best Effort
+        Value: /livox/lidar_1HDDH1200105021
       Use Fixed Frame: true
       Use rainbow: true
       Value: true
-    - Class: rviz_default_plugins/Image
+    - Alpha: 1
+      Autocompute Intensity Bounds: true
+      Autocompute Value Bounds:
+        Max Value: 10
+        Min Value: -10
+        Value: true
+      Axis: Z
+      Channel Name: intensity
+      Class: rviz_default_plugins/PointCloud2
+      Color: 255; 255; 255
+      Color Transformer: Intensity
+      Decay Time: 0
       Enabled: true
-      Max Value: 1
-      Median window: 5
-      Min Value: 0
-      Name: Image
-      Normalize Range: true
+      Invert Rainbow: false
+      Max Color: 255; 255; 255
+      Max Intensity: 162
+      Min Color: 0; 0; 0
+      Min Intensity: 0
+      Name: Right
+      Position Transformer: XYZ
+      Selectable: true
+      Size (Pixels): 3
+      Size (m): 0.009999999776482582
+      Style: Flat Squares
       Topic:
-        Depth: 5
+        Depth: 10
         Durability Policy: Volatile
-        History Policy: Keep Last
+        History Policy: Keep All
         Reliability Policy: Best Effort
-        Value: /camera/front_left/image
+        Value: /livox/lidar_3WEDH7600103291
+      Use Fixed Frame: true
+      Use rainbow: true
+      Value: true
+    - Alpha: 1
+      Autocompute Intensity Bounds: true
+      Autocompute Value Bounds:
+        Max Value: 10
+        Min Value: -10
+        Value: true
+      Axis: Z
+      Channel Name: intensity
+      Class: rviz_default_plugins/PointCloud2
+      Color: 255; 255; 255
+      Color Transformer: Intensity
+      Decay Time: 0
+      Enabled: true
+      Invert Rainbow: false
+      Max Color: 255; 255; 255
+      Max Intensity: 97
+      Min Color: 0; 0; 0
+      Min Intensity: 0
+      Name: Center
+      Position Transformer: XYZ
+      Selectable: true
+      Size (Pixels): 3
+      Size (m): 0.009999999776482582
+      Style: Flat Squares
+      Topic:
+        Depth: 10
+        Durability Policy: Volatile
+        History Policy: Keep All
+        Reliability Policy: Best Effort
+        Value: /livox/lidar_1HDDH1200100591
+      Use Fixed Frame: true
+      Use rainbow: true
       Value: true
   Enabled: true
   Global Options:
@@ -160,7 +233,7 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz_default_plugins/Orbit
-      Distance: 1.8979061841964722
+      Distance: 8.28122329711914
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
@@ -175,20 +248,18 @@ Visualization Manager:
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 0.6153982877731323
+      Pitch: 0.6303982734680176
       Target Frame: <Fixed Frame>
       Value: Orbit (rviz)
-      Yaw: 1.8703933954238892
+      Yaw: 3.2903945446014404
     Saved: ~
 Window Geometry:
   Displays:
     collapsed: false
-  Height: 765
+  Height: 1016
   Hide Left Dock: false
   Hide Right Dock: false
-  Image:
-    collapsed: false
-  QMainWindow State: 000000ff00000000fd000000020000000000000156000002a3fc0200000001fb0000000a0049006d006100670065010000003d000002a30000002800ffffff0000000100000156000002a3fc0200000001fb000000100044006900730070006c006100790073010000003d000002a3000000c900ffffff000004e4000002a300000004000000040000000800000008fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
-  Width: 1948
-  X: 160
-  Y: 115
+  QMainWindow State: 000000ff00000000fd000000020000000000000156000002a3fc0200000001fb0000000a0049006d006100670065000000003d000002a30000000000000000000000010000030c0000039efc0200000001fb000000100044006900730070006c006100790073010000003d0000039e000000c900ffffff000004260000039e00000004000000040000000800000008fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
+  Width: 1848
+  X: 72
+  Y: 27
