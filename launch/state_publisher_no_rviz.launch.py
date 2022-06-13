@@ -8,9 +8,7 @@ def generate_launch_description():
     pkg_share = launch_ros.substitutions.FindPackageShare(
         package="roar-gokart-urdf"
     ).find("roar-gokart-urdf")
-    default_model_path = os.path.join(
-        pkg_share, "src/description/indy_bot_description.urdf"
-    )
+    default_model_path = os.path.join(pkg_share, "src/gokart/main.urdf")
 
     robot_state_publisher_node = launch_ros.actions.Node(
         package="robot_state_publisher",

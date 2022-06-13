@@ -1,9 +1,13 @@
 <?xml version="1.0"?>
 <!-- WARNING! THIS IS A MOCK UP DO NOT USE IN PRODUCTION! -->
 <robot name="indy_bot" xmlns:xacro="http://ros.org/wiki/xacro">
-<!-- Define robot constants -->
+
+<!-- Define robot constants. All units are in meters(m) -->
 <xacro:property name="front_lidar_forward_offset" value="0.045"/>
 <xacro:property name="side_lidar_offset" value="0.12"/>
+<xacro:property name="sensor_base_height" value="1.0"/>
+<xacro:property name="wheel_base" value="1.0"/>
+<xacro:property name="vehicle_width" value="6.6"/>
 
 <xacro:property name="lidar_width" value="0.077"/>
 <xacro:property name="lidar_length" value="0.116"/>
@@ -20,9 +24,19 @@
 <xacro:property name="zed_width" value="0.032"/>
 <xacro:property name="zed_length" value="0.175"/>
 <xacro:property name="zed_height" value="0.03"/>
+
+
+
+
+
 <!-- Robot Base -->
-<link name="base_link">
-    <visual>
+<link name="base_link"></link>
+
+
+<link name="sensor_base"></link>
+
+<link name="chassis"> 
+        <visual>
         <geometry>
             <box size="${base_length} ${base_width} ${base_height}"/>
         </geometry>
@@ -32,12 +46,23 @@
     </visual>
 </link>
 
+<joint name="sensor_to_chassis" type="fixed">
+    <parent link="chassis"/>
+    <child link="sensor_base"/>
+    <origin xyz="0.0 0.0 ${sensor_base_height}" rpy="0 0 0.0"/>
+</joint>
+
+<joint name="base_link_to_chassis" type="fixed">
+    <parent link="base_link"/>
+    <child link="chassis"/>
+    <origin xyz="${wheel_base} 0.0 0.0" rpy="0 0 0.0"/>
+</joint>
 
 <!-- lidar -->
 <link name="left_lidar">
     <visual>
         <geometry>
-            <mesh filename="package://indy_bot_urdf/meshes/livox_horizon.stl" scale="0.001 0.001 0.001" />
+            <mesh filename="package://roar-gokart-urdf/meshes/livox_horizon.stl" scale="0.001 0.001 0.001" />
         </geometry>
         <origin xyz="${front_lidar_forward_offset} ${lidar_width/2} ${-lidar_height/2}" rpy="1.5708 0 3.14159" /> 
         <material name="grey">
@@ -46,7 +71,7 @@
     </visual>
 </link>
 <joint name="left_lidar_joint" type="fixed">
-    <parent link="base_link"/>
+    <parent link="sensor_base"/>
     <child link="left_lidar"/>
     <origin xyz="0.0 ${side_lidar_offset} ${(base_height/2+lidar_height/2)}" rpy="0 0 1.047"/>
 </joint>
@@ -54,7 +79,7 @@
 <link name="center_lidar">
     <visual>
         <geometry>
-            <mesh filename="package://indy_bot_urdf/meshes/livox_horizon.stl" scale="0.001 0.001 0.001" />
+            <mesh filename="package://roar-gokart-urdf/meshes/livox_horizon.stl" scale="0.001 0.001 0.001" />
         </geometry>
         <origin xyz="${front_lidar_forward_offset} ${lidar_width/2} ${-lidar_height/2}" rpy="1.5708 0 3.14159" /> 
         <material name="grey">
@@ -63,7 +88,7 @@
     </visual>
 </link>
 <joint name="center_lidar_joint" type="fixed">
-    <parent link="base_link"/>
+    <parent link="sensor_base"/>
     <child link="center_lidar"/>
     <origin xyz="${front_lidar_forward_offset} 0.0 ${(base_height/2+lidar_height/2)}" rpy="0 0 0"/>
 </joint>
@@ -72,7 +97,7 @@
 <link name="right_lidar">
     <visual>
         <geometry>
-            <mesh filename="package://indy_bot_urdf/meshes/livox_horizon.stl" scale="0.001 0.001 0.001" />
+            <mesh filename="package://roar-gokart-urdf/meshes/livox_horizon.stl" scale="0.001 0.001 0.001" />
         </geometry>
         <origin xyz="${front_lidar_forward_offset} ${lidar_width/2} ${-lidar_height/2}" rpy="1.5708 0 3.14159" /> 
         <material name="grey">
@@ -81,13 +106,12 @@
     </visual>
 </link>
 <joint name="right_lidar_joint" type="fixed">
-    <parent link="base_link"/>
+    <parent link="sensor_base"/>
     <child link="right_lidar"/>
     <origin xyz="0.0 ${-side_lidar_offset} ${(base_height/2+lidar_height/2)}" rpy="0 0 -1.047"/>
 </joint>
 
 <!-- zed -->
-
 <link name="camera_link"></link>
 <joint name="zed_joint" type="fixed">
     <parent link="center_lidar"/>

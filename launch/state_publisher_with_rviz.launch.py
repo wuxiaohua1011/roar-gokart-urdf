@@ -8,9 +8,7 @@ def generate_launch_description():
     pkg_share = launch_ros.substitutions.FindPackageShare(
         package="roar-gokart-urdf"
     ).find("roar-gokart-urdf")
-    default_model_path = os.path.join(
-        pkg_share, "src/description/indy_bot_description.urdf"
-    )
+    default_model_path = os.path.join(pkg_share, "src/gokart/main.urdf")
     default_rviz_config_path = os.path.join(pkg_share, "rviz/urdf_config.rviz")
 
     robot_state_publisher_node = launch_ros.actions.Node(
@@ -24,6 +22,7 @@ def generate_launch_description():
         package="joint_state_publisher",
         executable="joint_state_publisher",
         name="joint_state_publisher",
+        output="screen",
         condition=launch.conditions.UnlessCondition(LaunchConfiguration("gui")),
     )
     # joint_state_publisher_gui_node = launch_ros.actions.Node(

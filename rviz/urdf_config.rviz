@@ -6,12 +6,6 @@ Panels:
       Expanded:
         - /Global Options1
         - /Status1
-        - /Left1/Status1
-        - /Left1/Topic1
-        - /Right1
-        - /Right1/Topic1
-        - /Center1
-        - /Center1/Topic1
       Splitter Ratio: 0.46915167570114136
     Tree Height: 787
 Visualization Manager:
@@ -66,17 +60,14 @@ Visualization Manager:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-          Value: true
         left_lidar:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-          Value: true
         right_lidar:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-          Value: true
       Name: RobotModel
       TF Prefix: ""
       Update Interval: 0
@@ -113,105 +104,6 @@ Visualization Manager:
             {}
       Update Interval: 0
       Value: true
-    - Alpha: 1
-      Autocompute Intensity Bounds: true
-      Autocompute Value Bounds:
-        Max Value: 10
-        Min Value: -10
-        Value: true
-      Axis: Z
-      Channel Name: intensity
-      Class: rviz_default_plugins/PointCloud2
-      Color: 255; 255; 255
-      Color Transformer: Intensity
-      Decay Time: 0
-      Enabled: true
-      Invert Rainbow: false
-      Max Color: 255; 255; 255
-      Max Intensity: 150
-      Min Color: 0; 0; 0
-      Min Intensity: 0
-      Name: Left
-      Position Transformer: XYZ
-      Selectable: true
-      Size (Pixels): 3
-      Size (m): 0.009999999776482582
-      Style: Flat Squares
-      Topic:
-        Depth: 5
-        Durability Policy: Volatile
-        History Policy: Keep Last
-        Reliability Policy: Best Effort
-        Value: /livox/lidar_1HDDH1200105021
-      Use Fixed Frame: true
-      Use rainbow: true
-      Value: true
-    - Alpha: 1
-      Autocompute Intensity Bounds: true
-      Autocompute Value Bounds:
-        Max Value: 10
-        Min Value: -10
-        Value: true
-      Axis: Z
-      Channel Name: intensity
-      Class: rviz_default_plugins/PointCloud2
-      Color: 255; 255; 255
-      Color Transformer: Intensity
-      Decay Time: 0
-      Enabled: true
-      Invert Rainbow: false
-      Max Color: 255; 255; 255
-      Max Intensity: 162
-      Min Color: 0; 0; 0
-      Min Intensity: 0
-      Name: Right
-      Position Transformer: XYZ
-      Selectable: true
-      Size (Pixels): 3
-      Size (m): 0.009999999776482582
-      Style: Flat Squares
-      Topic:
-        Depth: 10
-        Durability Policy: Volatile
-        History Policy: Keep All
-        Reliability Policy: Best Effort
-        Value: /livox/lidar_3WEDH7600103291
-      Use Fixed Frame: true
-      Use rainbow: true
-      Value: true
-    - Alpha: 1
-      Autocompute Intensity Bounds: true
-      Autocompute Value Bounds:
-        Max Value: 10
-        Min Value: -10
-        Value: true
-      Axis: Z
-      Channel Name: intensity
-      Class: rviz_default_plugins/PointCloud2
-      Color: 255; 255; 255
-      Color Transformer: Intensity
-      Decay Time: 0
-      Enabled: true
-      Invert Rainbow: false
-      Max Color: 255; 255; 255
-      Max Intensity: 97
-      Min Color: 0; 0; 0
-      Min Intensity: 0
-      Name: Center
-      Position Transformer: XYZ
-      Selectable: true
-      Size (Pixels): 3
-      Size (m): 0.009999999776482582
-      Style: Flat Squares
-      Topic:
-        Depth: 10
-        Durability Policy: Volatile
-        History Policy: Keep All
-        Reliability Policy: Best Effort
-        Value: /livox/lidar_1HDDH1200100591
-      Use Fixed Frame: true
-      Use rainbow: true
-      Value: true
   Enabled: true
   Global Options:
     Background Color: 48; 48; 48
@@ -233,7 +125,7 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz_default_plugins/Orbit
-      Distance: 8.28122329711914
+      Distance: 8.626129150390625
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
@@ -248,10 +140,10 @@ Visualization Manager:
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 0.6303982734680176
+      Pitch: 0.6553982496261597
       Target Frame: <Fixed Frame>
       Value: Orbit (rviz)
-      Yaw: 3.2903945446014404
+      Yaw: 3.0153937339782715
     Saved: ~
 Window Geometry:
   Displays:
@@ -259,7 +151,7 @@ Window Geometry:
   Height: 1016
   Hide Left Dock: false
   Hide Right Dock: false
-  QMainWindow State: 000000ff00000000fd000000020000000000000156000002a3fc0200000001fb0000000a0049006d006100670065000000003d000002a30000000000000000000000010000030c0000039efc0200000001fb000000100044006900730070006c006100790073010000003d0000039e000000c900ffffff000004260000039e00000004000000040000000800000008fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
+  QMainWindow State: 000000ff00000000fd0000000200000000000001560000039efc0200000003fb0000000a0049006d006100670065000000003d000002a30000000000000000fb0000000c00430061006d006500720061010000003d0000039e0000000000000000fb0000000c00430061006d0065007200610000000000ffffffff0000000000000000000000010000030c0000039efc0200000001fb000000100044006900730070006c006100790073010000003d0000039e000000c900ffffff000004260000039e00000004000000040000000800000008fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
   Width: 1848
   X: 72
   Y: 27
