@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.5)
-project(indy_bot_urdf)
+project(roar-gokart-urdf)
 
 # Default to C99
 if(NOT CMAKE_C_STANDARD)

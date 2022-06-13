@@ -5,8 +5,6 @@
 <xacro:property name="front_lidar_forward_offset" value="0.045"/>
 <xacro:property name="side_lidar_offset" value="0.12"/>
 
-
-
 <xacro:property name="lidar_width" value="0.077"/>
 <xacro:property name="lidar_length" value="0.116"/>
 <xacro:property name="lidar_height" value="0.090"/>

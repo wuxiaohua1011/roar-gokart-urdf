@@ -5,9 +5,9 @@ import os
 
 
 def generate_launch_description():
-    pkg_share = launch_ros.substitutions.FindPackageShare(package="indy_bot_urdf").find(
-        "indy_bot_urdf"
-    )
+    pkg_share = launch_ros.substitutions.FindPackageShare(
+        package="roar-gokart-urdf"
+    ).find("roar-gokart-urdf")
     default_model_path = os.path.join(
         pkg_share, "src/description/indy_bot_description.urdf"
     )
