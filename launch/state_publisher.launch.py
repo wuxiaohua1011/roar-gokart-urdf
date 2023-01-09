@@ -4,6 +4,7 @@
 
 import launch
 from launch.substitutions import Command, LaunchConfiguration
+from launch.actions import DeclareLaunchArgument
 import launch_ros
 import os
 
@@ -13,7 +14,11 @@ def generate_launch_description():
         package="roar-gokart-urdf"
     ).find("roar-gokart-urdf")
     default_model_path = os.path.join(pkg_share, "src/gokart/main.urdf")
-
+    should_launch_rviz_args = DeclareLaunchArgument(
+        "should_launch_rviz",
+        default_value="False",  # default_value=[], has the same problem
+        description="True to start rviz, false otherwise",
+    )
     robot_state_publisher_node = launch_ros.actions.Node(
         package="robot_state_publisher",
         executable="robot_state_publisher",
@@ -32,6 +37,7 @@ def generate_launch_description():
 
     return launch.LaunchDescription(
         [
+            should_launch_rviz_args,
             launch.actions.DeclareLaunchArgument(
                 name="model",
                 default_value=default_model_path,
